@@ -19,7 +19,7 @@ export default function SideBar(props: SideBarProps) {
             active={activeMenu == "overview"}
           />
           <MenuItem
-            href="/member/transaction"
+            href="/member/transactions"
             title="Transactions"
             icon="ic-menu-transaction"
             active={activeMenu == "transactions"}
