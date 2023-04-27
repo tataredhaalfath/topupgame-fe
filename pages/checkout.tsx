@@ -1,4 +1,4 @@
-import CheckOutDetail from "@/components/CheckOutDetail";
+import CheckOutDetail from "@/components/organisms/CheckOutDetail";
 import CheckOutConfirmation from "@/components/organisms/CheckOutConfirmation";
 import CheckOutItem from "@/components/organisms/CheckOutItem";
 import Image from "next/image";
