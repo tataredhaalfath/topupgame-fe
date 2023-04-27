@@ -1,5 +1,6 @@
 import cx from "classnames";
 import Image from "next/image";
+import Link from "next/link";
 
 interface MenuItemProps {
   active?: boolean;
@@ -11,10 +12,11 @@ interface MenuItemProps {
     | "ic-menu-reward"
     | "ic-menu-setting"
     | "ic-menu-transaction";
+  href: string;
   title: string;
 }
 export default function MenuItem(props: Partial<MenuItemProps>) {
-  const { active, icon, title } = props;
+  const { active, icon, href, title } = props;
   const classItem = cx({
     item: true,
     "mb-30": true,
@@ -30,9 +32,9 @@ export default function MenuItem(props: Partial<MenuItemProps>) {
         className="icon me-3"
       />
       <p className="item-title m-0">
-        <a href="" className="text-lg text-decoration-none">
+        <Link href={href} className="text-lg text-decoration-none">
           {title}
-        </a>
+        </Link>
       </p>
     </div>
   );
