@@ -16,7 +16,7 @@ export default function FeaturedGame() {
     getFeatureGameList();
   }, []);
 
-  const API_IMG = process.env.NEXT_PUBLIC_IMG;
+  const ROOT_IMG = process.env.NEXT_PUBLIC_IMG;
   return (
     <section className="featured-game pt-50 pb-50">
       <div className="container-fluid">
@@ -31,8 +31,9 @@ export default function FeaturedGame() {
           {gameList.map((item: GameItemTypes) => {
             return (
               <GameItem
+                id={item._id}
                 key={item._id}
-                thumbnail={`${API_IMG}/${item.thumbnail}`}
+                thumbnail={`${ROOT_IMG}/${item.thumbnail}`}
                 title={item.name}
                 category={item.category?.name}
               />

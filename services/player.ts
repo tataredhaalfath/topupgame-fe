@@ -9,4 +9,9 @@ export async function getFeaturedGame() {
   return response.data.data;
 }
 
-export async function getDetailVoucher() {}
+export async function getDetailVoucher(id: string) {
+  const response = await axios.post(`${apiUrl}/${apiVersion}/player/detail`, {
+    id,
+  });
+  return response.data.data;
+}
