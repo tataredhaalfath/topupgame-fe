@@ -15,3 +15,8 @@ export async function getDetailVoucher(id: string) {
   });
   return response.data.data;
 }
+
+export async function getGameCategory() {
+  const response = await axios.get(`${apiUrl}/${apiVersion}/player/category`);
+  return response.data.data;
+}

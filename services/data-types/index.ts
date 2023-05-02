@@ -1,4 +1,4 @@
-export interface CategoryTpes {
+export interface CategoryTypes {
   _id: string;
   name: string;
   __v: number;
@@ -9,7 +9,7 @@ export interface GameItemTypes {
   name: string;
   status: string;
   thumbnail: string;
-  category: CategoryTpes;
+  category: CategoryTypes;
 }
 
 export interface BankTypes {
@@ -34,3 +34,4 @@ export interface NominalTypes {
   price: number;
   __v: number;
 }
+

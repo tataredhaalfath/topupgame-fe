@@ -1,66 +1,125 @@
+import { useState } from "react";
+import cx from "classnames";
+import { useRouter } from "next/router";
+import secureLocalStorage from "react-secure-storage";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function SignUpForm() {
+  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+
+  const className = {
+    label: cx("form-label text-lg fw-medium color-palette-1 mb-10"),
+  };
+
+  const router = useRouter();
+
+  const onSubmit = () => {
+    if (password !== passwordConfirm) {
+      toast.error("Password not same with Confirm Password");
+    } else {
+      const userForm = {
+        name,
+        email,
+        password,
+        phoneNumber,
+        username,
+      };
+      secureLocalStorage.setItem("user-form", JSON.stringify(userForm));
+      router.push("/sign-up-photo");
+    }
+  };
+
   return (
     <>
+      <ToastContainer />
       <h2 className="text-4xl fw-bold color-palette-1 mb-10">Sign Up</h2>
       <p className="text-lg color-palette-1 m-0">
         Daftar dan bergabung dengan kami
       </p>
-      <div className="pt-50">
-        <label
-          htmlFor="name"
-          className="form-label text-lg fw-medium color-palette-1 mb-10"
-        >
-          Full Name
-        </label>
+      <div className="pt-30">
+        <label className={className.label}>Username</label>
         <input
           type="text"
           className="form-control rounded-pill text-lg"
-          id="name"
-          name="name"
-          aria-describedby="name"
-          placeholder="Enter your name"
+          aria-describedby="username"
+          placeholder="Enter your username"
+          value={username}
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
         />
       </div>
       <div className="pt-30">
-        <label
-          htmlFor="email"
-          className="form-label text-lg fw-medium color-palette-1 mb-10"
-        >
-          Email Address
-        </label>
+        <label className={className.label}>Full Name</label>
+        <input
+          type="text"
+          className="form-control rounded-pill text-lg"
+          aria-describedby="name"
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
+      </div>
+      <div className="pt-30">
+        <label className={className.label}>Phone Number</label>
+        <input
+          type="text"
+          className="form-control rounded-pill text-lg"
+          aria-describedby="phoneNumber"
+          placeholder="Enter your phone number"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+        />
+      </div>
+      <div className="pt-30">
+        <label className={className.label}>Email Address</label>
         <input
           type="email"
           className="form-control rounded-pill text-lg"
-          id="email"
-          name="email"
           aria-describedby="email"
           placeholder="Enter your email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div className="pt-30">
-        <label
-          htmlFor="password"
-          className="form-label text-lg fw-medium color-palette-1 mb-10"
-        >
-          Password
-        </label>
+        <label className={className.label}>Password</label>
         <input
           type="password"
           className="form-control rounded-pill text-lg"
-          id="password"
-          name="password"
           aria-describedby="password"
           placeholder="Your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      <div className="pt-30">
+        <label className={className.label}>Confirm Password</label>
+        <input
+          type="password"
+          className="form-control rounded-pill text-lg"
+          aria-describedby="password confirm"
+          placeholder="Comfirm Password"
+          value={passwordConfirm}
+          onChange={(e) => setPasswordConfirm(e.target.value)}
         />
       </div>
       <div className="button-group d-flex flex-column mx-auto pt-50">
-        <a
+        <button
           className="btn btn-sign-up fw-medium text-lg text-white rounded-pill mb-16"
-          href="/sign-up-photo"
-          role="button"
+          type="button"
+          onClick={onSubmit}
         >
           Continue
-        </a>
+        </button>
         <a
           className="btn btn-sign-in fw-medium text-lg color-palette-1 rounded-pill"
           href="/sign-in"
