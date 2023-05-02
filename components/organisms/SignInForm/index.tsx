@@ -26,15 +26,20 @@ export default function SignInForm() {
         toast.error(response.message);
       } else {
         const token = response.data;
-        const tokenKey = btoa("token");
         const tokenBase64 = btoa(token);
-        Cookies.set(tokenKey, tokenBase64, { expires: 1 });
+        Cookies.set("token", tokenBase64, { expires: 1 });
 
         toast.success("Login Berhasil");
         setTimeout(() => {
           router.push("/");
         }, 1500);
       }
+    }
+  };
+
+  const handleKeyDown = (e: any) => {
+    if (e.key === "Enter") {
+      onSubmit();
     }
   };
   return (
@@ -58,6 +63,7 @@ export default function SignInForm() {
           placeholder="Enter your email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
       </div>
       <div className="pt-30">
@@ -74,6 +80,7 @@ export default function SignInForm() {
           placeholder="Your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
       </div>
       <div className="button-group d-flex flex-column mx-auto pt-50">
