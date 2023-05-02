@@ -13,13 +13,12 @@ export default function Auth() {
   const router = useRouter();
 
   useEffect(() => {
-    const tokenKey = btoa("token");
-    const token = Cookies.get(tokenKey);
+    const token = Cookies.get("token");
     if (token) {
       const jwtToken = atob(token);
       const payload: JWTPayloadTypes = jwtDecode(jwtToken);
-      const IMG = process.env.NEXT_PUBLIC_IMG;
       const userFromPayload: UserTypes = payload.player;
+      const IMG = process.env.NEXT_PUBLIC_IMG;
       userFromPayload.avatar = `${IMG}/players/${userFromPayload.avatar}`;
       setUser(userFromPayload);
       setIsLogin(true);
