@@ -5,6 +5,7 @@ import TopUpItem from "@/components/organisms/TopUpItem";
 import { getDetailVoucher } from "@/services/player";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
+import secureLocalStorage from "react-secure-storage";
 
 export default function Detail() {
   const { query, isReady } = useRouter();
@@ -28,6 +29,7 @@ export default function Detail() {
         name: data.category?.name,
       },
     });
+    secureLocalStorage.setItem("data-item", JSON.stringify(data))
     setNominals(data.nominals);
     setPayments(data.payments);
   }, []);
