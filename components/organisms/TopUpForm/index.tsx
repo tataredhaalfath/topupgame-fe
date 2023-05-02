@@ -21,15 +21,15 @@ export default function TopUpForm(props: TopUpFormProps) {
   const router = useRouter();
 
   const onNomialItemChange = (data: NominalTypes) => {
-    setPaymentItem(data);
+    setNominalItem(data);
   };
-
-  const onPaymentItemChange = (paymant: PaymentTypes, bank: BankTypes) => {
+  
+  const onPaymentItemChange = (payment: PaymentTypes, bank: BankTypes) => {
     const data = {
-      paymant,
+      payment,
       bank,
     };
-    setNominalItem(data);
+    setPaymentItem(data);
   };
 
   const onSubmit = () => {
