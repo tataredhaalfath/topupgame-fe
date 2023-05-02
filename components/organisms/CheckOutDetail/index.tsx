@@ -29,7 +29,6 @@ export default function CheckOutDetail() {
     const dataFromLocal: any = secureLocalStorage.getItem("data-topup");
     const dataTopUpLocal = JSON.parse(dataFromLocal);
     setDataTopUp(dataTopUpLocal);
-    console.log("toptup", dataTopUpLocal);
   }, []);
 
   const itemPrice = dataTopUp.nominalItem?.price;
