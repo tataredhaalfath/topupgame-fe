@@ -21,7 +21,6 @@ export default function Detail() {
 
   const getVoucherDetaiApi = useCallback(async (id: any) => {
     const data = await getDetailVoucher(id);
-    console.log("data", data);
     setDataItem({
       name: data.name,
       thumbnail: data.thumbnail,
