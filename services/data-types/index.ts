@@ -35,3 +35,7 @@ export interface NominalTypes {
   __v: number;
 }
 
+export interface SignInTypes {
+  email: string;
+  password: string;
+}

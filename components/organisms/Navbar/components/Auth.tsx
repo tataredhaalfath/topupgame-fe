@@ -1,10 +1,28 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import jwt_decode from "jwt-decode";
 
-interface AuthpProps {
-  isLogin?: boolean;
-}
-export default function Auth(props: Partial<AuthpProps>) {
-  const { isLogin } = props;
+export default function Auth() {
+  const [isLogin, setIsLogin] = useState(false);
+  const [user, setUser] = useState({
+    avatar: "",
+  });
+
+  useEffect(() => {
+    const tokenKey = btoa("token");
+    const token = Cookies.get(tokenKey);
+    if (token) {
+      const jwtToken = atob(token);
+      const payload = jwt_decode(jwtToken);
+      const IMG = process.env.NEXT_PUBLIC_IMG;
+      const user = payload.player;
+      user.avatar = `${IMG}/players/${user.avatar}`;
+      console.log("user", user);
+      setUser(user);
+      setIsLogin(true);
+    }
+  }, []);
 
   if (isLogin) {
     return (
@@ -20,7 +38,7 @@ export default function Auth(props: Partial<AuthpProps>) {
             aria-expanded="false"
           >
             <img
-              src="/img/avatar-1.png"
+              src={user.avatar}
               className="rounded-circle"
               width="40"
               height="40"

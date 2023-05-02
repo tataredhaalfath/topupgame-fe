@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import secureLocalStorage from "react-secure-storage";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Link from "next/link";
 
 export default function SignUpForm() {
   const [username, setUsername] = useState("");
@@ -120,13 +121,12 @@ export default function SignUpForm() {
         >
           Continue
         </button>
-        <a
+        <Link
           className="btn btn-sign-in fw-medium text-lg color-palette-1 rounded-pill"
           href="/sign-in"
-          role="button"
         >
           Sign In
-        </a>
+        </Link>
       </div>
     </>
   );
