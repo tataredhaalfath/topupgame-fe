@@ -5,8 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import secureLocalStorage from "react-secure-storage";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 export default function SignUpPhoto() {
   const [categories, setCategories] = useState([]);
@@ -60,7 +59,6 @@ export default function SignUpPhoto() {
 
   return (
     <section className="sign-up-photo mx-auto pt-lg-227 pb-lg-227 pt-130 pb-50">
-      <ToastContainer />
       <div className="container mx-auto">
         <form action="">
           <div className="form-input d-md-block d-flex flex-column">

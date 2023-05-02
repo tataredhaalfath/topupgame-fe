@@ -2,8 +2,7 @@ import { useState } from "react";
 import cx from "classnames";
 import { useRouter } from "next/router";
 import secureLocalStorage from "react-secure-storage";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import Link from "next/link";
 
 export default function SignUpForm() {
@@ -38,7 +37,6 @@ export default function SignUpForm() {
 
   return (
     <>
-      <ToastContainer />
       <h2 className="text-4xl fw-bold color-palette-1 mb-10">Sign Up</h2>
       <p className="text-lg color-palette-1 m-0">
         Daftar dan bergabung dengan kami
