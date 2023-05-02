@@ -47,14 +47,14 @@ export default function SignUpPhoto() {
 
     const result = await setSignUp(data);
 
-    if (result.error === 1) {
+    if (result.error) {
       toast.error(result.message);
     } else {
       secureLocalStorage.removeItem("user-form");
       toast.success("Register Success");
       setTimeout(() => {
         router.push("/sign-up-success");
-      }, 3000);
+      }, 1500);
     }
   };
 
@@ -92,7 +92,7 @@ export default function SignUpPhoto() {
                     name="avatar"
                     accept="image/png, image/jpeg"
                     onChange={(e) => {
-                      const img = e.target.files[0];
+                      const img: any = e.target.files[0];
                       setImagePreview(URL.createObjectURL(img));
                       setImage(img);
                     }}
