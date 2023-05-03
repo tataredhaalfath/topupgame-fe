@@ -1,6 +1,7 @@
 export interface CategoryTypes {
   _id: string;
   name: string;
+  value: number;
   __v: number;
 }
 
@@ -61,4 +62,17 @@ export interface CheckOutTypes {
   bank: string;
   name: string;
   accountUser: string;
+}
+
+export interface HistoryVoucherTopup {
+  coinName: string;
+  coinQuantity: string;
+  thumbnail: string;
+}
+export interface HistoryTransactionTypes {
+  _id: string;
+  value: number;
+  status: string;
+  historyVoucherTopup: HistoryVoucherTopup;
+  category: CategoryTypes;
 }

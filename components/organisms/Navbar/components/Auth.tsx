@@ -26,8 +26,7 @@ export default function Auth() {
   }, []);
 
   const onLogout = () => {
-    const tokenKey = btoa("token");
-    Cookies.remove(tokenKey);
+    Cookies.remove("token");
     setIsLogin(false);
     router.push("/");
   };
