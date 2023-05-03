@@ -8,14 +8,13 @@ import {
   PaymentTypes,
 } from "@/services/data-types";
 import { getDetailVoucher, getFeaturedGame } from "@/services/player";
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 import secureLocalStorage from "react-secure-storage";
 
 interface DetailProps {
   dataItem: GameItemTypes;
-  nominals: NominalTypes;
-  payments: PaymentTypes;
+  nominals: NominalTypes[];
+  payments: PaymentTypes[];
 }
 
 export default function Detail({ dataItem, nominals, payments }: DetailProps) {

@@ -8,11 +8,19 @@ import { updateProfile } from "@/services/member";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 
+interface UserStateTypes {
+  name: string;
+  username: string;
+  email: string;
+  avatar: any;
+  phoneNumber: string;
+}
 export default function EditProfile() {
-  const [imagePreview, setImagePreview] = useState(null);
+  const [imagePreview, setImagePreview] = useState("/");
 
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<UserStateTypes>({
     name: "",
+    username: "",
     email: "",
     avatar: "",
     phoneNumber: "",
@@ -46,7 +54,7 @@ export default function EditProfile() {
     } else {
       toast.success("Profil berhasil diperbarui");
       setTimeout(() => {
-        Cookies.remove("token")
+        Cookies.remove("token");
         router.push("/sign-in");
       }, 1500);
     }
@@ -61,9 +69,9 @@ export default function EditProfile() {
             <form action="">
               <div className="photo d-flex">
                 <div className="position-relative me-20 ">
-                  {imagePreview ? (
+                  {imagePreview === "/" ? (
                     <img
-                      src={imagePreview}
+                      src={user.avatar}
                       alt="icon upload"
                       style={{
                         objectFit: "cover",
@@ -76,7 +84,7 @@ export default function EditProfile() {
                     />
                   ) : (
                     <img
-                      src={user.avatar}
+                      src={imagePreview}
                       width={90}
                       height={90}
                       className="avatar img-fluid"
@@ -108,7 +116,7 @@ export default function EditProfile() {
                     name="avatar"
                     accept="image/png, image/jpeg"
                     onChange={(e) => {
-                      const img: any = e.target.files[0];
+                      const img: any = e.target.files![0];
                       setImagePreview(URL.createObjectURL(img));
                       return setUser({ ...user, avatar: img });
                     }}
