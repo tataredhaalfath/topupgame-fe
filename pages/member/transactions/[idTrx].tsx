@@ -1,11 +1,20 @@
 import TransactionsDetailContent from "@/components/organisms/TransactionDetailContent";
-import { JWTPayloadTypes, UserTypes } from "@/services/data-types";
+import {
+  HistoryTransactionTypes,
+  JWTPayloadTypes,
+  UserTypes,
+} from "@/services/data-types";
+import { getTransactionDetail } from "@/services/member";
 import jwtDecode from "jwt-decode";
 
-export default function TransactionsDetail() {
+interface TransactionDetailProps {
+  transactionDetail: HistoryTransactionTypes;
+}
+export default function TransactionsDetail(props: TransactionDetailProps) {
+  const { transactionDetail } = props;
   return (
     <section className="transactions-detail overflow-auto">
-      <TransactionsDetailContent />
+      <TransactionsDetailContent data={transactionDetail} />
     </section>
   );
 }
@@ -16,9 +25,13 @@ interface GetServerSideProps {
       token: string;
     };
   };
+  params: {
+    idTrx: string;
+  };
 }
 // server side process
-export async function getServerSideProps({ req }: GetServerSideProps) {
+export async function getServerSideProps({ req, params }: GetServerSideProps) {
+  const idTrx = params.idTrx;
   const { token } = req.cookies;
   if (!token) {
     return {
@@ -34,9 +47,10 @@ export async function getServerSideProps({ req }: GetServerSideProps) {
   const userFromPayload: UserTypes = payload.player;
   const IMG = process.env.NEXT_PUBLIC_IMG;
   userFromPayload.avatar = `${IMG}/players/${userFromPayload.avatar}`;
+  const response = await getTransactionDetail(idTrx, jwtToken);
   return {
     props: {
-      user: userFromPayload,
+      transactionDetail: response.data,
     },
   };
 }
