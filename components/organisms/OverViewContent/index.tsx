@@ -1,5 +1,5 @@
 import { CategoryTypes, HistoryTransactionTypes } from "@/services/data-types";
-import { getMemberOverview } from "@/services/player";
+import { getMemberOverview } from "@/services/member";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Category from "./Category";
