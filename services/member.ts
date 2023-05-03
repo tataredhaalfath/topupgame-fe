@@ -37,3 +37,13 @@ export async function getTransactionDetail(id: string, token: string) {
     },
   });
 }
+
+export async function updateProfile(data: FormData) {
+  const url = `${apiUrl}/${apiVersion}/player/profile`;
+  return callAPI({
+    url,
+    method: "PUT",
+    token: true,
+    data,
+  });
+}

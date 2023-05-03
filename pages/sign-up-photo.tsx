@@ -92,7 +92,7 @@ export default function SignUpPhoto() {
                     onChange={(e) => {
                       const img: any = e.target.files[0];
                       setImagePreview(URL.createObjectURL(img));
-                      setImage(img);
+                      return setImage(img);
                     }}
                   />
                 </div>
