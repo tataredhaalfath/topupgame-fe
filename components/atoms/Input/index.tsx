@@ -2,7 +2,7 @@ export interface InputProps {
   label: string;
 }
 export default function Input(props: InputProps) {
-  const { label, ...nativeProps } = props;
+  const { label,  ...nativeProps } = props;
   return (
     <>
       <label
