@@ -19,6 +19,10 @@ interface DetailProps {
 }
 
 export default function Detail({ dataItem, nominals, payments }: DetailProps) {
+  useEffect(() => {
+    secureLocalStorage.setItem("data-item", JSON.stringify(dataItem));
+  }, []);
+
   return (
     <>
       <Navbar />
