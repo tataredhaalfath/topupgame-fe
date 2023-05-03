@@ -11,17 +11,29 @@ export async function getMemberOverview() {
   });
 }
 
-export async function getMemberTransaction(valueParams: string ) {
-  let params = ""
-  if(valueParams === "all"){
-    params = ""
-  }else {
-    params= `?status=${valueParams}`
+export async function getMemberTransaction(valueParams: string) {
+  let params = "";
+  if (valueParams === "all") {
+    params = "";
+  } else {
+    params = `?status=${valueParams}`;
   }
   const url = `${apiUrl}/${apiVersion}/player/history${params}`;
   return callAPI({
     url,
     method: "GET",
     token: true,
+  });
+}
+
+export async function getTransactionDetail(id: string, token: string) {
+  const url = `${apiUrl}/${apiVersion}/player/history/detail`;
+  return callAPI({
+    url,
+    method: "POST",
+    serverToken: token,
+    data: {
+      id,
+    },
   });
 }
