@@ -28,6 +28,10 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ![image](https://github.com/tataredhaalfath/topupgame-fe/assets/43898482/99cfda72-41cc-4465-ac6b-ce28be6324d7)
 ![image](https://github.com/tataredhaalfath/topupgame-fe/assets/43898482/01e710d4-fe22-463c-8622-6089201e38eb)
 
+## Detail Page
+![image](https://github.com/tataredhaalfath/topupgame-fe/assets/43898482/37e4bf1b-8a99-4fb7-9aa8-ddf3952cc8c6)
+![image](https://github.com/tataredhaalfath/topupgame-fe/assets/43898482/37d33480-7422-44af-924a-135670c8bde0)
+
 
 ## Member Page
 
