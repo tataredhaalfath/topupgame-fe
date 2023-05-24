@@ -22,17 +22,15 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Landing Page
 
-To learn more about Next.js, take a look at the following resources:
+![image](https://github.com/tataredhaalfath/topupgame-fe/assets/43898482/1d233ec8-debc-4fed-9d9a-db16ebd24738)
+![image](https://github.com/tataredhaalfath/topupgame-fe/assets/43898482/99cfda72-41cc-4465-ac6b-ce28be6324d7)
+![image](https://github.com/tataredhaalfath/topupgame-fe/assets/43898482/01e710d4-fe22-463c-8622-6089201e38eb)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Member Page
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![image](https://github.com/tataredhaalfath/topupgame-fe/assets/43898482/aae20210-7a24-4ffd-80df-1a8d5fe4b07f)
+![image](https://github.com/tataredhaalfath/topupgame-fe/assets/43898482/3f0d4c33-008a-4b54-b529-1b7f7c0884a5)
+![image](https://github.com/tataredhaalfath/topupgame-fe/assets/43898482/068ea975-f265-4856-81b4-c4defa258fdd)
